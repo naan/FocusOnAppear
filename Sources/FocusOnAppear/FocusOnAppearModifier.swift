@@ -23,6 +23,9 @@ struct FocusOnAppearModifier<Value>: ViewModifier where Value: Hashable {
                 .opacity(0)
             content
                 .focused(condition, equals: value)
+                .onTapGesture {
+                    condition.wrappedValue = value
+                }
                 .onAppear {
                     condition.wrappedValue = value
                 }
@@ -49,6 +52,9 @@ struct FocusOnAppearModifierWithoutCondition: ViewModifier {
                 .opacity(0)
             content
                 .focused($isFocused)
+                .onTapGesture {
+                    isFocused = true
+                }
                 .onAppear {
                     isFocused = true
                 }
