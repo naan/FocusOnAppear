@@ -9,12 +9,15 @@ public struct Configuration {
     public let returnKeyType: ReturnKeyType
     /// A Boolean value that indicates whether the input field is `SecureField`.
     public let isSecure: Bool
+    /// Configure the language of the keyboard
+    public let languageCode: String?
 
     /// Initialize `Configuration` with the given parameters.
-    public init(keyboardType: KeyboardType = .default, returnKeyType: ReturnKeyType = .default, isSecure: Bool = false) {
+    public init(keyboardType: KeyboardType = .default, returnKeyType: ReturnKeyType = .default, isSecure: Bool = false, languageCode: String? = nil) {
         self.keyboardType = keyboardType
         self.returnKeyType = returnKeyType
         self.isSecure = isSecure
+        self.languageCode = languageCode
     }
 
     /// The default configuration for `focusOnAppear`.
